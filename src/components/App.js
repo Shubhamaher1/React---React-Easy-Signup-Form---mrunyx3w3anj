@@ -6,19 +6,39 @@ import { signUpFormValidation } from "../utils/validation";
 
 const App = () => {
   const initialValue = {
-    Username: " ",
     email: "",
     password: "",
-    selected: false
+    name: " "
+    // selected: false
   };
   const [formValue, setfrovalue] = useState(initialValue);
   const [formerror, setformerror] = useState({});
 
   const [isSubmit, setisSubmit] = useState(false);
-  const handelchange = (event) => {
-    const { name, value } = event.target;
-    setfrovalue({ ...value, [name]: value });
-  };
+  function handelchangeu(event) {
+    setfrovalue({
+      email: formValue.email,
+      password: formValue.password,
+      name: event.target.value
+    });
+    // console.log(name);
+  }
+  function handelchangee(event) {
+    setfrovalue({
+      email: event.target.value,
+      password: formValue.password,
+      name: formValue.Username
+    });
+    // console.log(name);
+  }
+  function handelchangep(event) {
+    setfrovalue({
+      email: formValue.email,
+      password: event.target.value,
+      name: formValue.Username
+    });
+    // console.log(name);
+  }
 
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -27,22 +47,22 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log(formerror);
-    if (Object.keys(formerror).length === 0 && isSubmit) {
-      console.log(formValue);
+    // console.log(formerror);
+    if (Object.keys(formerror).length === 0 && isSubmit === true) {
+      // console.log(formValue);
     }
-  }, []);
+  }, [formerror, formValue, isSubmit]);
   return (
     <>
-      <form onSubmit={handelSubmit}>
+      <form>
         <h1>Sign Up</h1>
 
         <label htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
-          value={formValue.Username}
-          onChange={handelchange}
+          value={formValue.name}
+          onChange={handelchangeu}
         ></input>
         {formerror.name ? <p>{formerror.name}</p> : null}
         <label htmlFor="email">Email</label>
@@ -51,7 +71,7 @@ const App = () => {
           name="email"
           type="email"
           value={formValue.email}
-          onChange={handelchange}
+          onChange={handelchangee}
         ></input>
         {formerror.email ? <p>{formerror.email}</p> : null}
         <label htmlFor="password">password</label>
@@ -60,15 +80,15 @@ const App = () => {
           name="password"
           type="password"
           value={formValue.password}
-          onChange={handelchange}
+          onChange={handelchangep}
         ></input>
         {formerror.password ? <p>{formerror.password}</p> : null}
         <input
           type="checkbox"
           name="checkox"
           id="consent"
-          value={formValue.selected}
-          onChange={handelchange}
+          // value={formValue.selected}
+          // onChange={handelchange}
         ></input>
         <label htmlFor="checkbox"> this is check box</label>
         <button onClick={handelSubmit}>Signup</button>
