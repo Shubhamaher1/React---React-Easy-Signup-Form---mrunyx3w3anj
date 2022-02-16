@@ -44,7 +44,7 @@ const App = () => {
           value={formValue.Username}
           onChange={handelchange}
         ></input>
-        <p>{formerror.name}</p>
+        {formerror.name ? <p>{formerror.name}</p> : null}
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -53,7 +53,7 @@ const App = () => {
           value={formValue.email}
           onChange={handelchange}
         ></input>
-        <p>{formerror.email}</p>
+        {formerror.email ? <p>{formerror.email}</p> : null}
         <label htmlFor="password">password</label>
         <input
           id="password"
@@ -62,7 +62,7 @@ const App = () => {
           value={formValue.password}
           onChange={handelchange}
         ></input>
-        <p>{formerror.password}</p>
+        {formerror.password ? <p>{formerror.password}</p> : null}
         <input
           type="checkbox"
           name="checkox"
