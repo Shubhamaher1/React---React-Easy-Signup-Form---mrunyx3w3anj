@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import "./App.css";
+import "./styles/App.css";
 // import { validate } from 'schema-utils';
 // import  From  from '../Comenent/From';
 import {signUpFormValidation} from "../utils/validation";
