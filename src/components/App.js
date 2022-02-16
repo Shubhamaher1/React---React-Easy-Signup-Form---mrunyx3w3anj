@@ -54,7 +54,7 @@ const App = () => {
   }, [formerror, formValue, isSubmit]);
   return (
     <>
-      <form>
+      <form onSubmit={handelSubmit}>
         <h1>Sign Up</h1>
 
         <label htmlFor="name">Name</label>
@@ -91,7 +91,7 @@ const App = () => {
           // onChange={handelchange}
         ></input>
         <label htmlFor="checkbox"> this is check box</label>
-        <button onClick={handelSubmit}>Signup</button>
+        <button>Signup</button>
       </form>
     </>
   );
