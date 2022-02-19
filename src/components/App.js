@@ -4,12 +4,12 @@ import "../styles/App.css";
 // import  From  from '../Comenent/From';
 import { signUpFormValidation } from "../utils/validation";
 
-const App = () => {
+function App() {
   const initialValue = {
     email: "",
     password: "",
-    name: " "
-    // selected: false
+    name: "",
+    selected: false
   };
   const [formValue, setfrovalue] = useState(initialValue);
   const [formerror, setformerror] = useState({});
@@ -21,30 +21,33 @@ const App = () => {
       password: formValue.password,
       name: event.target.value
     });
-    // console.log(name);
+    console.log(formValue.name);
   }
   function handelchangee(event) {
     setfrovalue({
       email: event.target.value,
       password: formValue.password,
-      name: formValue.Username
+      name: formValue.name
     });
+    console.log(formValue.name);
+
     // console.log(name);
   }
   function handelchangep(event) {
     setfrovalue({
       email: formValue.email,
       password: event.target.value,
-      name: formValue.Username
+      name: formValue.name
     });
+    console.log(formValue.name);
     // console.log(name);
   }
 
-  const handelSubmit = (e) => {
+  async function handelSubmit(e) {
     e.preventDefault();
     setformerror(signUpFormValidation(formValue));
     setisSubmit(true);
-  };
+  }
 
   useEffect(() => {
     // console.log(formerror);
@@ -54,7 +57,7 @@ const App = () => {
   }, [formerror, formValue, isSubmit]);
   return (
     <>
-      <form onSubmit={handelSubmit}>
+      <form>
         <h1>Sign Up</h1>
 
         <label htmlFor="name">Name</label>
@@ -91,10 +94,10 @@ const App = () => {
           // onChange={handelchange}
         ></input>
         <label htmlFor="checkbox"> this is check box</label>
-        <button>Signup</button>
+        <button onClick={handelSubmit}>Signup</button>
       </form>
     </>
   );
-};
+}
 
 export default App;
