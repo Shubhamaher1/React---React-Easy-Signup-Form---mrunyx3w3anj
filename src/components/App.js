@@ -43,18 +43,22 @@ function App() {
     // console.log(name);
   }
 
-  async function handelSubmit(e) {
+  const handelSubmit = (e) => {
     e.preventDefault();
     setformerror(signUpFormValidation(formValue));
-    setisSubmit(true);
-  }
-
-  useEffect(() => {
-    // console.log(formerror);
-    if (Object.keys(formerror).length === 0 && isSubmit === true) {
-      // console.log(formValue);
+    if (Object.keys(formerror).length === 0) {
+      setisSubmit(true);
+      console.log("sumbti");
     }
-  }, [formerror, formValue, isSubmit]);
+  };
+
+  // useEffect(() => {
+  //   // console.log(formerror);
+  // if (Object.keys(formerror).length === 0 && isSubmit === true) {
+  // console.log(formValue);
+  // console.log("submit");
+  //   }
+  // }, [formerror, formValue, isSubmit]);
   return (
     <>
       <form>
