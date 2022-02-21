@@ -12,7 +12,7 @@ function App() {
     // selected: false
   };
   const [formValue, setfrovalue] = useState(initialValue);
-  const [formerror, setformerror] = useState(null);
+  const [formerror, setformerror] = useState({});
 
   const [isSubmit, setisSubmit] = useState(false);
   function handelchangeu(event) {
@@ -71,9 +71,7 @@ function App() {
           value={formValue.name}
           onChange={handelchangeu}
         ></input>
-        {Object.key(formerror.name).length !== 0 ? (
-          <p>{formerror.name}</p>
-        ) : null}
+        {formerror.name && <p>{formerror.name}</p>}
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -82,9 +80,7 @@ function App() {
           value={formValue.email}
           onChange={handelchangee}
         ></input>
-        {Object.key(formerror.email).length !== 0 ? (
-          <p>{formerror.email}</p>
-        ) : null}
+        {formerror.email && <p>{formerror.email}</p>}
         <label htmlFor="password">password</label>
         <input
           id="password"
@@ -93,9 +89,7 @@ function App() {
           value={formValue.password}
           onChange={handelchangep}
         ></input>
-        {Object.key(formerror.password).length !== 0 ? (
-          <p>{formerror.password}</p>
-        ) : null}
+        {formerror.password && <p>{formerror.password}</p>}
         <input
           type="checkbox"
           name="checkox"
