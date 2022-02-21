@@ -8,8 +8,8 @@ function App() {
   const initialValue = {
     email: "",
     password: "",
-    name: "",
-    selected: false
+    name: ""
+    // selected: false
   };
   const [formValue, setfrovalue] = useState(initialValue);
   const [formerror, setformerror] = useState({});
@@ -98,7 +98,9 @@ function App() {
           // onChange={handelchange}
         ></input>
         <label htmlFor="checkbox"> this is check box</label>
-        <button onClick={handelSubmit}>Signup</button>
+        <button onClick={handelSubmit} type="submit">
+          Signup
+        </button>
       </form>
     </>
   );
