@@ -71,7 +71,10 @@ function App() {
           value={formValue.name}
           onChange={handelchangeu}
         ></input>
-        {formerror.name ? <p>{formerror.name}</p> : <p></p>}
+
+        {Object.keys(formerror.name).length > 0 ? (
+          <p>{formerror.name}</p>
+        ) : null}
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -80,7 +83,9 @@ function App() {
           value={formValue.email}
           onChange={handelchangee}
         ></input>
-        {formerror.email ? <p>{formerror.email}</p> : <p></p>}
+        {Object.keys(formerror.email).length > 0 ? (
+          <p>{formerror.email}</p>
+        ) : null}
         <label htmlFor="password">password</label>
         <input
           id="password"
@@ -89,7 +94,9 @@ function App() {
           value={formValue.password}
           onChange={handelchangep}
         ></input>
-        {formerror.password ? <p>{formerror.password}</p> : <p></p>}
+        {Object.keys(formerror.password).length > 0 ? (
+          <p>{formerror.password}</p>
+        ) : null}
         <input
           type="checkbox"
           name="checkox"
