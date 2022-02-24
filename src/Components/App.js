@@ -48,6 +48,7 @@ function App() {
     const allerror = signUpFormValidation(formValue);
     if (Object.keys(allerror).length === 0) {
       setisSubmit(true);
+      setformerror(null);
       return <h1>thanks for applying </h1>;
     } else {
       setformerror(allerror);
