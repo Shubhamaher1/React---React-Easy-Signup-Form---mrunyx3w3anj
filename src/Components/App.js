@@ -45,10 +45,12 @@ function App() {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    setformerror(signUpFormValidation(formValue));
-    if (Object.keys(formerror).length === 0) {
+    const allerror = signUpFormValidation(formValue);
+    if (Object.keys(allerror).length === 0) {
       setisSubmit(true);
-      // console.log("sumbti");
+      return <h1>thanks for applying </h1>;
+    } else {
+      setformerror(allerror);
     }
   };
 
